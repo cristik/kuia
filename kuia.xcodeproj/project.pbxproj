@@ -7,38 +7,119 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA9F1152194B883200F5B160 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9F1151194B883200F5B160 /* Foundation.framework */; };
-		AA9F1155194B883200F5B160 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9F1154194B883200F5B160 /* main.m */; };
-		AA9F1159194B883300F5B160 /* kuia.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA9F1158194B883300F5B160 /* kuia.1 */; };
+		AA9F1165194B88E300F5B160 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9F1164194B88E300F5B160 /* Cocoa.framework */; };
+		AA9F116F194B88E300F5B160 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA9F116D194B88E300F5B160 /* InfoPlist.strings */; };
+		AA9F1171194B88E300F5B160 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9F1170194B88E300F5B160 /* main.m */; };
+		AA9F1175194B88E300F5B160 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AA9F1173194B88E300F5B160 /* Credits.rtf */; };
+		AA9F1178194B88E300F5B160 /* KUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9F1177194B88E300F5B160 /* KUAppDelegate.m */; };
+		AA9F117B194B88E400F5B160 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9F1179194B88E400F5B160 /* MainMenu.xib */; };
+		AA9F1183194B88E400F5B160 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9F1182194B88E400F5B160 /* SenTestingKit.framework */; };
+		AA9F1184194B88E400F5B160 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9F1164194B88E300F5B160 /* Cocoa.framework */; };
+		AA9F118C194B88E400F5B160 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA9F118A194B88E400F5B160 /* InfoPlist.strings */; };
+		AA9F118F194B88E400F5B160 /* kuia_uiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9F118E194B88E400F5B160 /* kuia_uiTests.m */; };
+		AA9F119B194B891E00F5B160 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9F1164194B88E300F5B160 /* Cocoa.framework */; };
+		AA9F11A1194B891E00F5B160 /* kuia.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9F11A0194B891E00F5B160 /* kuia.m */; };
+		AA9F11A8194B891F00F5B160 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9F1182194B88E400F5B160 /* SenTestingKit.framework */; };
+		AA9F11A9194B891F00F5B160 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9F1164194B88E300F5B160 /* Cocoa.framework */; };
+		AA9F11AC194B891F00F5B160 /* libkuia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9F119A194B891E00F5B160 /* libkuia.a */; };
+		AA9F11B2194B891F00F5B160 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA9F11B0194B891F00F5B160 /* InfoPlist.strings */; };
+		AA9F11B5194B891F00F5B160 /* kuiaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9F11B4194B891F00F5B160 /* kuiaTests.m */; };
+		AA9F11BE194B893100F5B160 /* libkuia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9F119A194B891E00F5B160 /* libkuia.a */; };
+		AA9F11C1194B8B3F00F5B160 /* KUElement.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9F11C0194B8B3F00F5B160 /* KUElement.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		AA9F114C194B883200F5B160 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-				AA9F1159194B883300F5B160 /* kuia.1 in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 1;
+/* Begin PBXContainerItemProxy section */
+		AA9F1185194B88E400F5B160 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA9F1146194B883200F5B160 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA9F1162194B88E300F5B160;
+			remoteInfo = "kuia-ui";
 		};
-/* End PBXCopyFilesBuildPhase section */
+		AA9F11AA194B891F00F5B160 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA9F1146194B883200F5B160 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA9F1199194B891E00F5B160;
+			remoteInfo = kuia;
+		};
+		AA9F11BC194B892A00F5B160 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA9F1146194B883200F5B160 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA9F1199194B891E00F5B160;
+			remoteInfo = kuia;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AA9F114E194B883200F5B160 /* kuia */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = kuia; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9F1151194B883200F5B160 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		AA9F1154194B883200F5B160 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AA9F1157194B883300F5B160 /* kuia-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kuia-Prefix.pch"; sourceTree = "<group>"; };
-		AA9F1158194B883300F5B160 /* kuia.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = kuia.1; sourceTree = "<group>"; };
+		AA9F1163194B88E300F5B160 /* kuia-ui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kuia-ui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9F1164194B88E300F5B160 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		AA9F1167194B88E300F5B160 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		AA9F1168194B88E300F5B160 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		AA9F1169194B88E300F5B160 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AA9F116C194B88E300F5B160 /* kuia-ui-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "kuia-ui-Info.plist"; sourceTree = "<group>"; };
+		AA9F116E194B88E300F5B160 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AA9F1170194B88E300F5B160 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AA9F1172194B88E300F5B160 /* kuia-ui-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kuia-ui-Prefix.pch"; sourceTree = "<group>"; };
+		AA9F1174194B88E300F5B160 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		AA9F1176194B88E300F5B160 /* KUAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KUAppDelegate.h; sourceTree = "<group>"; };
+		AA9F1177194B88E300F5B160 /* KUAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KUAppDelegate.m; sourceTree = "<group>"; };
+		AA9F117A194B88E400F5B160 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AA9F1181194B88E400F5B160 /* kuia-uiTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kuia-uiTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9F1182194B88E400F5B160 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		AA9F1189194B88E400F5B160 /* kuia-uiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "kuia-uiTests-Info.plist"; sourceTree = "<group>"; };
+		AA9F118B194B88E400F5B160 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AA9F118D194B88E400F5B160 /* kuia_uiTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kuia_uiTests.h; sourceTree = "<group>"; };
+		AA9F118E194B88E400F5B160 /* kuia_uiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kuia_uiTests.m; sourceTree = "<group>"; };
+		AA9F119A194B891E00F5B160 /* libkuia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libkuia.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9F119E194B891E00F5B160 /* kuia-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kuia-Prefix.pch"; sourceTree = "<group>"; };
+		AA9F119F194B891E00F5B160 /* kuia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kuia.h; sourceTree = "<group>"; };
+		AA9F11A0194B891E00F5B160 /* kuia.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kuia.m; sourceTree = "<group>"; };
+		AA9F11A7194B891F00F5B160 /* kuiaTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kuiaTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9F11AF194B891F00F5B160 /* kuiaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "kuiaTests-Info.plist"; sourceTree = "<group>"; };
+		AA9F11B1194B891F00F5B160 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AA9F11B3194B891F00F5B160 /* kuiaTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kuiaTests.h; sourceTree = "<group>"; };
+		AA9F11B4194B891F00F5B160 /* kuiaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kuiaTests.m; sourceTree = "<group>"; };
+		AA9F11BF194B8B3F00F5B160 /* KUElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUElement.h; sourceTree = "<group>"; };
+		AA9F11C0194B8B3F00F5B160 /* KUElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUElement.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AA9F114B194B883200F5B160 /* Frameworks */ = {
+		AA9F1160194B88E300F5B160 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA9F1152194B883200F5B160 /* Foundation.framework in Frameworks */,
+				AA9F11BE194B893100F5B160 /* libkuia.a in Frameworks */,
+				AA9F1165194B88E300F5B160 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9F117D194B88E400F5B160 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9F1183194B88E400F5B160 /* SenTestingKit.framework in Frameworks */,
+				AA9F1184194B88E400F5B160 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9F1197194B891E00F5B160 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9F119B194B891E00F5B160 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9F11A3194B891F00F5B160 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9F11A8194B891F00F5B160 /* SenTestingKit.framework in Frameworks */,
+				AA9F11A9194B891F00F5B160 /* Cocoa.framework in Frameworks */,
+				AA9F11AC194B891F00F5B160 /* libkuia.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,7 +129,10 @@
 		AA9F1145194B883200F5B160 = {
 			isa = PBXGroup;
 			children = (
-				AA9F1153194B883200F5B160 /* kuia */,
+				AA9F116A194B88E300F5B160 /* kuia-ui */,
+				AA9F1187194B88E400F5B160 /* kuia-uiTests */,
+				AA9F119C194B891E00F5B160 /* kuia */,
+				AA9F11AD194B891F00F5B160 /* kuiaTests */,
 				AA9F1150194B883200F5B160 /* Frameworks */,
 				AA9F114F194B883200F5B160 /* Products */,
 			);
@@ -57,7 +141,10 @@
 		AA9F114F194B883200F5B160 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA9F114E194B883200F5B160 /* kuia */,
+				AA9F1163194B88E300F5B160 /* kuia-ui.app */,
+				AA9F1181194B88E400F5B160 /* kuia-uiTests.octest */,
+				AA9F119A194B891E00F5B160 /* libkuia.a */,
+				AA9F11A7194B891F00F5B160 /* kuiaTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,38 +153,161 @@
 			isa = PBXGroup;
 			children = (
 				AA9F1151194B883200F5B160 /* Foundation.framework */,
+				AA9F1164194B88E300F5B160 /* Cocoa.framework */,
+				AA9F1182194B88E400F5B160 /* SenTestingKit.framework */,
+				AA9F1166194B88E300F5B160 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AA9F1153194B883200F5B160 /* kuia */ = {
+		AA9F1166194B88E300F5B160 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AA9F1154194B883200F5B160 /* main.m */,
-				AA9F1158194B883300F5B160 /* kuia.1 */,
-				AA9F1156194B883300F5B160 /* Supporting Files */,
+				AA9F1167194B88E300F5B160 /* AppKit.framework */,
+				AA9F1168194B88E300F5B160 /* CoreData.framework */,
+				AA9F1169194B88E300F5B160 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		AA9F116A194B88E300F5B160 /* kuia-ui */ = {
+			isa = PBXGroup;
+			children = (
+				AA9F1176194B88E300F5B160 /* KUAppDelegate.h */,
+				AA9F1177194B88E300F5B160 /* KUAppDelegate.m */,
+				AA9F1179194B88E400F5B160 /* MainMenu.xib */,
+				AA9F116B194B88E300F5B160 /* Supporting Files */,
+				AA9F11BF194B8B3F00F5B160 /* KUElement.h */,
+				AA9F11C0194B8B3F00F5B160 /* KUElement.m */,
+			);
+			path = "kuia-ui";
+			sourceTree = "<group>";
+		};
+		AA9F116B194B88E300F5B160 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA9F116C194B88E300F5B160 /* kuia-ui-Info.plist */,
+				AA9F116D194B88E300F5B160 /* InfoPlist.strings */,
+				AA9F1170194B88E300F5B160 /* main.m */,
+				AA9F1172194B88E300F5B160 /* kuia-ui-Prefix.pch */,
+				AA9F1173194B88E300F5B160 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA9F1187194B88E400F5B160 /* kuia-uiTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA9F118D194B88E400F5B160 /* kuia_uiTests.h */,
+				AA9F118E194B88E400F5B160 /* kuia_uiTests.m */,
+				AA9F1188194B88E400F5B160 /* Supporting Files */,
+			);
+			path = "kuia-uiTests";
+			sourceTree = "<group>";
+		};
+		AA9F1188194B88E400F5B160 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA9F1189194B88E400F5B160 /* kuia-uiTests-Info.plist */,
+				AA9F118A194B88E400F5B160 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA9F119C194B891E00F5B160 /* kuia */ = {
+			isa = PBXGroup;
+			children = (
+				AA9F119F194B891E00F5B160 /* kuia.h */,
+				AA9F11A0194B891E00F5B160 /* kuia.m */,
+				AA9F119D194B891E00F5B160 /* Supporting Files */,
 			);
 			path = kuia;
 			sourceTree = "<group>";
 		};
-		AA9F1156194B883300F5B160 /* Supporting Files */ = {
+		AA9F119D194B891E00F5B160 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AA9F1157194B883300F5B160 /* kuia-Prefix.pch */,
+				AA9F119E194B891E00F5B160 /* kuia-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA9F11AD194B891F00F5B160 /* kuiaTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA9F11B3194B891F00F5B160 /* kuiaTests.h */,
+				AA9F11B4194B891F00F5B160 /* kuiaTests.m */,
+				AA9F11AE194B891F00F5B160 /* Supporting Files */,
+			);
+			path = kuiaTests;
+			sourceTree = "<group>";
+		};
+		AA9F11AE194B891F00F5B160 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA9F11AF194B891F00F5B160 /* kuiaTests-Info.plist */,
+				AA9F11B0194B891F00F5B160 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		AA9F1198194B891E00F5B160 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		AA9F114D194B883200F5B160 /* kuia */ = {
+		AA9F1162194B88E300F5B160 /* kuia-ui */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA9F115C194B883300F5B160 /* Build configuration list for PBXNativeTarget "kuia" */;
+			buildConfigurationList = AA9F1190194B88E400F5B160 /* Build configuration list for PBXNativeTarget "kuia-ui" */;
 			buildPhases = (
-				AA9F114A194B883200F5B160 /* Sources */,
-				AA9F114B194B883200F5B160 /* Frameworks */,
-				AA9F114C194B883200F5B160 /* CopyFiles */,
+				AA9F115F194B88E300F5B160 /* Sources */,
+				AA9F1160194B88E300F5B160 /* Frameworks */,
+				AA9F1161194B88E300F5B160 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA9F11BD194B892A00F5B160 /* PBXTargetDependency */,
+			);
+			name = "kuia-ui";
+			productName = "kuia-ui";
+			productReference = AA9F1163194B88E300F5B160 /* kuia-ui.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA9F1180194B88E400F5B160 /* kuia-uiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA9F1193194B88E400F5B160 /* Build configuration list for PBXNativeTarget "kuia-uiTests" */;
+			buildPhases = (
+				AA9F117C194B88E400F5B160 /* Sources */,
+				AA9F117D194B88E400F5B160 /* Frameworks */,
+				AA9F117E194B88E400F5B160 /* Resources */,
+				AA9F117F194B88E400F5B160 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA9F1186194B88E400F5B160 /* PBXTargetDependency */,
+			);
+			name = "kuia-uiTests";
+			productName = "kuia-uiTests";
+			productReference = AA9F1181194B88E400F5B160 /* kuia-uiTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		AA9F1199194B891E00F5B160 /* kuia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA9F11B6194B891F00F5B160 /* Build configuration list for PBXNativeTarget "kuia" */;
+			buildPhases = (
+				AA9F1196194B891E00F5B160 /* Sources */,
+				AA9F1197194B891E00F5B160 /* Frameworks */,
+				AA9F1198194B891E00F5B160 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -105,8 +315,27 @@
 			);
 			name = kuia;
 			productName = kuia;
-			productReference = AA9F114E194B883200F5B160 /* kuia */;
-			productType = "com.apple.product-type.tool";
+			productReference = AA9F119A194B891E00F5B160 /* libkuia.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		AA9F11A6194B891F00F5B160 /* kuiaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA9F11B9194B891F00F5B160 /* Build configuration list for PBXNativeTarget "kuiaTests" */;
+			buildPhases = (
+				AA9F11A2194B891F00F5B160 /* Sources */,
+				AA9F11A3194B891F00F5B160 /* Frameworks */,
+				AA9F11A4194B891F00F5B160 /* Resources */,
+				AA9F11A5194B891F00F5B160 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA9F11AB194B891F00F5B160 /* PBXTargetDependency */,
+			);
+			name = kuiaTests;
+			productName = kuiaTests;
+			productReference = AA9F11A7194B891F00F5B160 /* kuiaTests.octest */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -129,21 +358,169 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AA9F114D194B883200F5B160 /* kuia */,
+				AA9F1162194B88E300F5B160 /* kuia-ui */,
+				AA9F1180194B88E400F5B160 /* kuia-uiTests */,
+				AA9F1199194B891E00F5B160 /* kuia */,
+				AA9F11A6194B891F00F5B160 /* kuiaTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		AA9F1161194B88E300F5B160 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9F116F194B88E300F5B160 /* InfoPlist.strings in Resources */,
+				AA9F1175194B88E300F5B160 /* Credits.rtf in Resources */,
+				AA9F117B194B88E400F5B160 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9F117E194B88E400F5B160 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9F118C194B88E400F5B160 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9F11A4194B891F00F5B160 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9F11B2194B891F00F5B160 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AA9F117F194B88E400F5B160 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		AA9F11A5194B891F00F5B160 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		AA9F114A194B883200F5B160 /* Sources */ = {
+		AA9F115F194B88E300F5B160 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA9F1155194B883200F5B160 /* main.m in Sources */,
+				AA9F1171194B88E300F5B160 /* main.m in Sources */,
+				AA9F1178194B88E300F5B160 /* KUAppDelegate.m in Sources */,
+				AA9F11C1194B8B3F00F5B160 /* KUElement.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9F117C194B88E400F5B160 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9F118F194B88E400F5B160 /* kuia_uiTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9F1196194B891E00F5B160 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9F11A1194B891E00F5B160 /* kuia.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9F11A2194B891F00F5B160 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9F11B5194B891F00F5B160 /* kuiaTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA9F1186194B88E400F5B160 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA9F1162194B88E300F5B160 /* kuia-ui */;
+			targetProxy = AA9F1185194B88E400F5B160 /* PBXContainerItemProxy */;
+		};
+		AA9F11AB194B891F00F5B160 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA9F1199194B891E00F5B160 /* kuia */;
+			targetProxy = AA9F11AA194B891F00F5B160 /* PBXContainerItemProxy */;
+		};
+		AA9F11BD194B892A00F5B160 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA9F1199194B891E00F5B160 /* kuia */;
+			targetProxy = AA9F11BC194B892A00F5B160 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA9F116D194B88E300F5B160 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA9F116E194B88E300F5B160 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AA9F1173194B88E300F5B160 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA9F1174194B88E300F5B160 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		AA9F1179194B88E400F5B160 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA9F117A194B88E400F5B160 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		AA9F118A194B88E400F5B160 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA9F118B194B88E400F5B160 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AA9F11B0194B891F00F5B160 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA9F11B1194B891F00F5B160 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AA9F115A194B883300F5B160 /* Debug */ = {
@@ -205,7 +582,61 @@
 			};
 			name = Release;
 		};
-		AA9F115D194B883300F5B160 /* Debug */ = {
+		AA9F1191194B88E400F5B160 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kuia-ui/kuia-ui-Prefix.pch";
+				INFOPLIST_FILE = "kuia-ui/kuia-ui-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AA9F1192194B88E400F5B160 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kuia-ui/kuia-ui-Prefix.pch";
+				INFOPLIST_FILE = "kuia-ui/kuia-ui-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AA9F1194194B88E400F5B160 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/kuia-ui.app/Contents/MacOS/kuia-ui";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kuia-ui/kuia-ui-Prefix.pch";
+				INFOPLIST_FILE = "kuia-uiTests/kuia-uiTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		AA9F1195194B88E400F5B160 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/kuia-ui.app/Contents/MacOS/kuia-ui";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kuia-ui/kuia-ui-Prefix.pch";
+				INFOPLIST_FILE = "kuia-uiTests/kuia-uiTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		AA9F11B7194B891F00F5B160 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -214,12 +645,38 @@
 			};
 			name = Debug;
 		};
-		AA9F115E194B883300F5B160 /* Release */ = {
+		AA9F11B8194B891F00F5B160 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "kuia/kuia-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AA9F11BA194B891F00F5B160 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kuia/kuia-Prefix.pch";
+				INFOPLIST_FILE = "kuiaTests/kuiaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		AA9F11BB194B891F00F5B160 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kuia/kuia-Prefix.pch";
+				INFOPLIST_FILE = "kuiaTests/kuiaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -235,11 +692,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA9F115C194B883300F5B160 /* Build configuration list for PBXNativeTarget "kuia" */ = {
+		AA9F1190194B88E400F5B160 /* Build configuration list for PBXNativeTarget "kuia-ui" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA9F115D194B883300F5B160 /* Debug */,
-				AA9F115E194B883300F5B160 /* Release */,
+				AA9F1191194B88E400F5B160 /* Debug */,
+				AA9F1192194B88E400F5B160 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA9F1193194B88E400F5B160 /* Build configuration list for PBXNativeTarget "kuia-uiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA9F1194194B88E400F5B160 /* Debug */,
+				AA9F1195194B88E400F5B160 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA9F11B6194B891F00F5B160 /* Build configuration list for PBXNativeTarget "kuia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA9F11B7194B891F00F5B160 /* Debug */,
+				AA9F11B8194B891F00F5B160 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA9F11B9194B891F00F5B160 /* Build configuration list for PBXNativeTarget "kuiaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA9F11BA194B891F00F5B160 /* Debug */,
+				AA9F11BB194B891F00F5B160 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
