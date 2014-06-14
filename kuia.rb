@@ -78,7 +78,7 @@ module KUElement
   extend FFI::Library
 
   # Load the library
-  ffi_lib 'DerivedData/kuia/Build/Products/Debug/kuia.dylib'  
+  ffi_lib 'kuia.dylib'
 
   def self.getAppElement(pid)
     kuElementClass = ObjC.objc_getClass("KUElement")
