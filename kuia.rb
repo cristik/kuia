@@ -64,25 +64,47 @@ module Cocoa
     end
   end
 
+  def self.numberToNSNumber(number)
+    nsNumberClass = ObjC.objc_getClass("NSNumber")
+    return ObjC.msgSend(nsNumberClass, 'numberWithInt:', :int, number)
+  end
+
+  def self.rubyObjectToCocoaObject(object)
+    if object.instance_of?(TrueClass) || object.instance_of?(FalseClass)
+        return self.numberToNSNumber((object ? 1 : 0))
+    elsif object.instance_of? Fixnum
+      return self.numberToNSNumber(object)
+    elsif object.instance_of? String
+      return self.StringToNSString(object)
+    end
+    return object
+  end
+
   def self.hashToNSDictionary(hash)
     dictionaryClass = ObjC.objc_getClass("NSMutableDictionary")
     dictionary = ObjC.msgSend(dictionaryClass, 'dictionary')    
     hash.each do |key,value|
-      ObjC.msgSend(dictionary, 'setObject:forKey:', :pointer, Cocoa.String_to_NSString(value), :pointer, Cocoa.String_to_NSString(key))
+      ObjC.msgSend(dictionary, 'setObject:forKey:', :pointer, Cocoa.rubyObjectToCocoaObject(value), :pointer, Cocoa.rubyObjectToCocoaObject(key))
     end
     return dictionary
   end
+
 end
 
 module KUElement
   extend FFI::Library
 
   # Load the library
-  ffi_lib 'kuia.dylib'
+  ffi_lib File.expand_path('../kuia.dylib', __FILE__)
 
   def self.getAppElement(pid)
     kuElementClass = ObjC.objc_getClass("KUElement")
     return ObjC.msgSend(kuElementClass,'appElementForPID:', :int, pid)
+  end
+
+  def self.getAppElementByPath(path,launch)
+    kuElementClass = ObjC.objc_getClass("KUElement")
+return ObjC.msgSend(kuElementClass,'appElementForPath:launchIfNotRunning:', :pointer, Cocoa.StringToNSString(path), :bool, launch)
   end
 
   def self.query(element, queryDict)
@@ -90,11 +112,23 @@ module KUElement
   end
 
   def self.queryOne(element, queryDict)
+#puts caller
     return ObjC.msgSend(element,'queryOne:', :pointer, Cocoa.hashToNSDictionary(queryDict))
   end
 
   def self.performAction(element, action)
-    kuElementClass = ObjC.objc_getClass("KUElement")
-    ObjC.msgSend(element,'performAction:', :pointer, Cocoa.String_to_NSString(action))
+    ObjC.msgSend(element,'performAction:', :pointer, Cocoa.StringToNSString(action))
+  end
+
+  def self.postKeyboardEvent(element, keyChar, virtualKey, keyDown)
+    ObjC.msgSend(element,'postKeyboardEvent:virtualKey:keyDown:', :int, keyChar, :int, virtualKey, :bool, keyDown)
+  end
+
+  def self.typeCharacter(element, chr)
+    ObjC.msgSend(element,'typeCharacter:', :int, chr)
+  end
+
+  def self.changeAttribute(element, attribute, value)
+    ObjC.msgSend(element,'changeAttribute:to:', :pointer, Cocoa.rubyObjectToCocoaObject(attribute), :pointer, Cocoa.rubyObjectToCocoaObject(value))
   end
 end
