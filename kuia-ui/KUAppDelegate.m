@@ -12,20 +12,31 @@
 @implementation KUAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
-    self.pid = 309;
+    self.pid = 2231;
+    self.queryRole = @"AXButton";
+    self.queryTitle = @"Next";
     [self gatherElements:nil];
 }
 
 - (IBAction)gatherElements:(id)sender{
-    AXUIElementRef appElement = AXUIElementCreateApplication(self.pid);
-    self.uiElements = @[[[KUElement alloc] initWithAXUIElementRef:appElement]];
+    self.uiElements = @[[KUElement appElementForPID:self.pid]];
 }
 
+- (IBAction)searchElements:(id)sender{
+    NSMutableDictionary *query = [NSMutableDictionary dictionary];
+    if(self.queryRole.length) query[@"AXRole"] = self.queryRole;
+    if(self.queryTitle.length) query[@"AXTitle"] = self.queryTitle;
+    self.uiElements = [[KUElement appElementForPID:self.pid] query:query];
+}
+
+- (IBAction)clickElement:(id)sender{
+    [(KUElement*)[self.uiElementsController selectedObjects].lastObject performAction:@"AXPress"];
+}
 @end
 
 @implementation NSObject(KUIA)
 
-- (BOOL)isUIElement{
+- (BOOL)isNotUIElement{
     return ![self isKindOfClass:[KUElement class]];
 }
 

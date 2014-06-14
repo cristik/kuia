@@ -8,9 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+const uint8_t libraryVersion = 1;
+
 @interface KUElement : NSObject
 
 @property(readonly) NSDictionary *properties;
+@property(readonly) NSArray *children;
 
++ (id)appElementForPID:(pid_t)pid;
 - (id)initWithAXUIElementRef:(AXUIElementRef)elementRef;
+
+- (BOOL)matches:(NSDictionary*)queryDict;
+- (NSArray*)query:(NSDictionary*)queryDict;
+- (KUElement*)queryOne:(NSDictionary*)queryDict;
+- (void)performAction:(NSString*)action;
 @end

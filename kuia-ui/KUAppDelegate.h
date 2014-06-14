@@ -11,9 +11,15 @@
 @interface KUAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSTreeController *uiElementsController;
+
 @property int pid;
 @property NSArray *uiElements;
+@property NSString *queryRole;
+@property NSString *queryTitle;
 
 - (IBAction)gatherElements:(id)sender;
+- (IBAction)searchElements:(id)sender;
+- (IBAction)clickElement:(id)sender;
 
 @end
