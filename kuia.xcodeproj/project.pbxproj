@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FD2073E194CC3DD000C5BDF /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD2073C194CC37C000C5BDF /* Carbon.framework */; };
 		AA23E4FE194C5322006DE758 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9F1164194B88E300F5B160 /* Cocoa.framework */; };
 		AA23E50A194C5331006DE758 /* kuia.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA23E4FD194C5322006DE758 /* kuia.dylib */; };
 		AA23E50B194C533A006DE758 /* KUElement.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9F11C0194B8B3F00F5B160 /* KUElement.m */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FD2073C194CC37C000C5BDF /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		AA23E4FD194C5322006DE758 /* kuia.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = kuia.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA23E501194C5322006DE758 /* kuia-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kuia-Prefix.pch"; sourceTree = "<group>"; };
 		AA9F1151194B883200F5B160 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD2073E194CC3DD000C5BDF /* Carbon.framework in Frameworks */,
 				AA23E4FE194C5322006DE758 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +124,7 @@
 		AA9F1150194B883200F5B160 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FD2073C194CC37C000C5BDF /* Carbon.framework */,
 				AA9F1151194B883200F5B160 /* Foundation.framework */,
 				AA9F1164194B88E300F5B160 /* Cocoa.framework */,
 				AA9F1182194B88E400F5B160 /* SenTestingKit.framework */,

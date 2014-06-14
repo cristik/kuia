@@ -23,4 +23,7 @@ const uint8_t libraryVersion = 1;
 - (NSArray*)query:(NSDictionary*)queryDict;
 - (KUElement*)queryOne:(NSDictionary*)queryDict;
 - (void)performAction:(NSString*)action;
+- (void)postKeyboardEvent:(CGCharCode)keyChar virtualKey:(CGKeyCode)virtualKey keyDown:(BOOL)keyDown;
+- (void)typeCharacter:(char)c;
+- (void)changeAttribute:(NSString*)attribute to:(id)value;
 @end

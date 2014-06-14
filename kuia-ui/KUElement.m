@@ -7,6 +7,7 @@
 //
 
 #import "KUElement.h"
+#include <Carbon/Carbon.h>
 
 @interface KUIElementProperty: NSObject
 @property id name;
@@ -97,17 +98,21 @@
 }
 
 - (id)query:(NSDictionary*)queryDict returnFirst:(BOOL)returnFirst{
+    //NSLog(@"query: %@",queryDict);
     NSMutableArray *candidates = [NSMutableArray arrayWithObject:self];
     NSMutableArray *result = returnFirst?nil:[NSMutableArray arrayWithCapacity:1];
     while(candidates.count){
         KUElement *candidate = candidates[0];
+        //NSLog(@"candidate props: %@",candidate.properties);
         [candidates removeObjectAtIndex:0];
         if([candidate matches:queryDict]){
             if(returnFirst) return candidate;
             else [result addObject:candidate];
         }
-        for(id uiElem in candidate.properties[@"AXChildren"]){
-            [candidates addObject:[[KUElement alloc] initWithAXUIElementRef:(__bridge AXUIElementRef)uiElem]];
+        if([candidate.properties[@"AXChildren"] isKindOfClass:[NSArray class]]){
+            for(id uiElem in candidate.properties[@"AXChildren"]){
+                [candidates addObject:[[KUElement alloc] initWithAXUIElementRef:(__bridge AXUIElementRef)uiElem]];
+            }
         }
     }
     return result;
@@ -122,6 +127,78 @@
 
 - (void)performAction:(NSString*)action{
     AXUIElementPerformAction(_elementRef, (__bridge CFStringRef)(action));
+}
+
+- (void)postKeyboardEvent:(CGCharCode)keyChar virtualKey:(CGKeyCode)virtualKey keyDown:(BOOL)keyDown{
+    AXUIElementPostKeyboardEvent(_elementRef, keyChar, virtualKey, keyDown);
+}
+
+- (void)typeCharacter:(char)c{
+    NSLog(@"characted: %c",c);
+    static NSDictionary *charToKeyMap = nil;
+    if(!charToKeyMap){
+        //build the key code -> character mapping, currently only for the shift key
+        TISInputSourceRef currentKeyboard = TISCopyCurrentKeyboardInputSource();
+        CFDataRef layoutData = TISGetInputSourceProperty(currentKeyboard,
+                                                         kTISPropertyUnicodeKeyLayoutData);
+        const UCKeyboardLayout *keyboardLayout = (const UCKeyboardLayout *)CFDataGetBytePtr(layoutData);
+        
+        NSMutableDictionary *tmp = [NSMutableDictionary dictionaryWithCapacity:256];
+        for(int i=0;i<128;i++){
+            UInt32 keysDown = 0;
+            UniChar chars[4];
+            UniCharCount realLength;
+            
+            OSStatus err = UCKeyTranslate(keyboardLayout,
+                                          i,
+                                          kUCKeyActionDisplay,
+                                          0,
+                                          LMGetKbdType(),
+                                          kUCKeyTranslateNoDeadKeysBit,
+                                          &keysDown,
+                                          sizeof(chars) / sizeof(chars[0]),
+                                          &realLength,
+                                          chars);
+            
+            if(err == noErr){
+                NSString  *str = (__bridge NSString*)CFStringCreateWithCharacters(kCFAllocatorDefault,
+                                                                                  chars, 1);
+                if(!tmp[str]) tmp[str] = @(i);
+            }
+            
+            //with shift holded down
+            err = UCKeyTranslate(keyboardLayout,
+                                 i,
+                                 kUCKeyActionDisplay,
+                                 (shiftKey >> 8) & 0xFF,
+                                 LMGetKbdType(),
+                                 kUCKeyTranslateNoDeadKeysBit,
+                                 &keysDown,
+                                 sizeof(chars) / sizeof(chars[0]),
+                                 &realLength,
+                                 chars);
+            if(err == noErr){
+                NSString *str = (__bridge NSString*)CFStringCreateWithCharacters(kCFAllocatorDefault,
+                                                                                 chars, 1);
+                if(!tmp[str]) tmp[str] = @(i+128);
+                
+            }
+        }
+        CFRelease(currentKeyboard);
+        charToKeyMap = tmp;
+    }
+    int keyCode = [charToKeyMap[[NSString stringWithFormat:@"%c",c]] intValue];
+    BOOL sendShift = keyCode >= 128;
+    if(sendShift) keyCode -= 128;
+    
+    if(sendShift) [self postKeyboardEvent:0 virtualKey:56 keyDown:YES];
+    [self postKeyboardEvent:0 virtualKey:keyCode keyDown:YES];
+    [self postKeyboardEvent:0 virtualKey:keyCode keyDown:NO];
+    if(sendShift) [self postKeyboardEvent:0 virtualKey:56 keyDown:NO];
+}
+
+- (void)changeAttribute:(NSString*)attribute to:(id)value{
+    AXUIElementSetAttributeValue(_elementRef, (__bridge CFStringRef)attribute, (__bridge CFTypeRef)(value));
 }
 @end
 
