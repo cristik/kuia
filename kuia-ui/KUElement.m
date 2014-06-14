@@ -26,6 +26,22 @@
     return nil;
 }
 
++ (id)appElementForPath:(NSString*)path launchIfNotRunning:(BOOL)launch{
+    ProcessSerialNumber psn = { kNoProcess, kNoProcess };
+    while (GetNextProcess(&psn) == noErr){
+        NSDictionary *info = (__bridge_transfer NSDictionary*)ProcessInformationCopyDictionary(&psn,  kProcessDictionaryIncludeAllInformationMask);
+        if([info[@"CFBundleExecutable"] isEqual:path]) return [self appElementForPID:[info[@"pid"] intValue]];
+    }
+    if(launch){
+        @try{
+            NSTask *task = [NSTask launchedTaskWithLaunchPath:path arguments:@[]];
+            return [self appElementForPID:task.processIdentifier];
+        }@catch (NSException *ex) {
+        }
+    }
+    return nil;
+}
+
 - (id)initWithAXUIElementRef:(AXUIElementRef)elementRef{
     if(self = [super init]){
         _elementRef = elementRef;

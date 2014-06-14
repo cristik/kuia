@@ -19,7 +19,7 @@
 }
 
 - (IBAction)gatherElements:(id)sender{
-    self.uiElements = @[[KUElement appElementForPID:self.pid]];
+    self.uiElements = @[[KUElement appElementForPath:@"/Applications/TextEdit.app/Contents/MacOS/TextEdit" launchIfNotRunning:YES]];
 }
 
 - (IBAction)searchElements:(id)sender{
