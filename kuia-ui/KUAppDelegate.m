@@ -12,21 +12,29 @@
 @implementation KUAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
+    if(AXAPIEnabled()){
+    }
     self.pid = 2231;
     self.queryRole = @"AXButton";
     self.queryTitle = @"Next";
     [self gatherElements:nil];
 }
 
+- (KUElement*)appElement{
+    return [KUElement appElementForPath:@"/Applications/TextEdit.app/Contents/MacOS/TextEdit" launchIfNotRunning:YES];
+}
 - (IBAction)gatherElements:(id)sender{
-    self.uiElements = @[[KUElement appElementForPath:@"/Applications/TextEdit.app/Contents/MacOS/TextEdit" launchIfNotRunning:YES]];
+    self.uiElements = @[self.appElement];
 }
 
 - (IBAction)searchElements:(id)sender{
     NSMutableDictionary *query = [NSMutableDictionary dictionary];
     if(self.queryRole.length) query[@"AXRole"] = self.queryRole;
     if(self.queryTitle.length) query[@"AXTitle"] = self.queryTitle;
-    self.uiElements = [[KUElement appElementForPID:self.pid] query:query];
+    if(self.queryDescription.length) query[@"AXDescription"] = self.queryDescription;
+    if(self.queryValue.length) query[@"AXValue"] = self.queryValue;
+    self.uiElements = [self.appElement query:query];
+    [self.appElement queryOne:query];
 }
 
 - (IBAction)clickElement:(id)sender{

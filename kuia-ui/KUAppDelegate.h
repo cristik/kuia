@@ -17,6 +17,8 @@
 @property NSArray *uiElements;
 @property NSString *queryRole;
 @property NSString *queryTitle;
+@property NSString *queryDescription;
+@property NSString *queryValue;
 
 - (IBAction)gatherElements:(id)sender;
 - (IBAction)searchElements:(id)sender;

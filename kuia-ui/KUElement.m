@@ -35,7 +35,10 @@
     }
     if(launch){
         @try{
-            NSTask *task = [NSTask launchedTaskWithLaunchPath:path arguments:@[]];
+            NSTask *task = [NSTask new];
+            task.launchPath = path;
+            task.standardInput = task.standardOutput = task.standardError = [NSFileHandle fileHandleWithNullDevice];
+            [task launch];
             return [self appElementForPID:task.processIdentifier];
         }@catch (NSException *ex) {
         }
@@ -63,6 +66,11 @@
         }*/
         for(id prop in self.properties){
             [children addObject:[[KUIElementProperty alloc] initWithName:prop value:self.properties[prop]]];
+        }
+        CFArrayRef actions = NULL;
+        AXUIElementCopyActionNames(_elementRef, &actions);
+        if(actions){
+            [children addObject:[[KUIElementProperty alloc] initWithName:@"actions" value:[(__bridge_transfer NSArray*)actions componentsJoinedByString:@", "]]];
         }
         _children = children;
     }
@@ -134,7 +142,6 @@
 }
 
 - (void)typeCharacter:(char)c{
-    NSLog(@"characted: %c",c);
     static NSDictionary *charToKeyMap = nil;
     if(!charToKeyMap){
         //build the key code -> character mapping, currently only for the shift key
