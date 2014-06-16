@@ -14,14 +14,19 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
     if(AXAPIEnabled()){
     }
-    self.pid = 2231;
+    self.pid = 0;
     self.queryRole = @"AXButton";
     self.queryTitle = @"Next";
     [self gatherElements:nil];
 }
 
 - (KUElement*)appElement{
-    return [KUElement appElementForPath:@"/Applications/TextEdit.app/Contents/MacOS/TextEdit" launchIfNotRunning:YES];
+    if(self.pid){
+        if(self.pid == 1) return [KUElement systemWideElement];
+        else return [KUElement appElementForPID:self.pid];
+    }else{
+        return [KUElement appElementForPath:@"/Applications/TextEdit.app/Contents/MacOS/TextEdit" launchIfNotRunning:YES];
+    }
 }
 - (IBAction)gatherElements:(id)sender{
     self.uiElements = @[self.appElement];

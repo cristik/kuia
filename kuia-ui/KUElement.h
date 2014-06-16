@@ -15,11 +15,12 @@ const uint8_t libraryVersion = 1;
 @property(readonly) NSDictionary *properties;
 @property(readonly) NSArray *children;
 
++ (id)systemWideElement;
 + (id)appElementForPID:(pid_t)pid;
 + (id)appElementForPath:(NSString*)path launchIfNotRunning:(BOOL)launch;
 - (id)initWithAXUIElementRef:(AXUIElementRef)elementRef;
 
-- (BOOL)matches:(NSDictionary*)queryDict;
+- (id)matches:(NSDictionary*)queryDict;
 - (NSArray*)query:(NSDictionary*)queryDict;
 - (KUElement*)queryOne:(NSDictionary*)queryDict;
 - (void)performAction:(NSString*)action;

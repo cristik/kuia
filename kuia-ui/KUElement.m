@@ -21,10 +21,24 @@
     NSArray *_children;
 }
 
++ (id)systemWideElement{
+    AXUIElementRef systemWideElement = AXUIElementCreateSystemWide();
+    KUElement *element = nil;
+    if(systemWideElement){
+        element = [[KUElement alloc] initWithAXUIElementRef:systemWideElement];
+        CFRelease(systemWideElement);
+    }
+    return element;
+}
+
 + (id)appElementForPID:(pid_t)pid{
     AXUIElementRef appElement = AXUIElementCreateApplication(pid);
-    if(appElement) return [[KUElement alloc] initWithAXUIElementRef:appElement];
-    return nil;
+    KUElement *element = nil;
+    if(appElement){
+        element = [[KUElement alloc] initWithAXUIElementRef:appElement];
+        CFRelease(appElement);
+    }
+    return element;
 }
 
 + (id)appElementForPath:(NSString*)path launchIfNotRunning:(BOOL)launch{
@@ -98,11 +112,31 @@
     return _properties;
 }
 
-- (BOOL)matches:(NSDictionary*)queryDict{
-    for(id key in queryDict){
-        if(![queryDict[key] isEqual:self.properties[key]]) return NO;
+- (id)matches:(NSDictionary*)queryDict{
+    NSNumber *childIndex = queryDict[@":index"];
+    BOOL match = YES;
+    for(NSString *key in queryDict){
+        if(![key isKindOfClass:[NSString class]]) continue;
+        if(key.length && [key characterAtIndex:0] == ':') continue;
+        if(![queryDict[key] isEqual:self.properties[key]]){
+            match = NO;
+            break;
+        }
     }
-    return YES;
+    if(match){
+        if(childIndex){
+            NSArray *children = self.properties[NSAccessibilityChildrenAttribute];
+            if(childIndex.integerValue < children.count){
+                return [[KUElement alloc] initWithAXUIElementRef:(__bridge AXUIElementRef)children[childIndex.integerValue]];
+            }else{
+                return nil;
+            }
+        }else{
+            return self;
+        }
+    }else{
+        return nil;
+    }
 }
 
 - (id)query:(NSDictionary*)queryDict returnFirst:(BOOL)returnFirst{
@@ -113,9 +147,10 @@
         KUElement *candidate = candidates[0];
         //NSLog(@"candidate props: %@",candidate.properties);
         [candidates removeObjectAtIndex:0];
-        if([candidate matches:queryDict]){
-            if(returnFirst) return candidate;
-            else [result addObject:candidate];
+        KUElement *match = [candidate matches:queryDict];
+        if(match){
+            if(returnFirst) return match;
+            else [result addObject:match];
         }
         if([candidate.properties[@"AXChildren"] isKindOfClass:[NSArray class]]){
             for(id uiElem in candidate.properties[@"AXChildren"]){
