@@ -41,20 +41,12 @@
     return element;
 }
 
-+ (id)appElementForPath:(NSString*)path launchIfNotRunning:(BOOL)launch{
++ (id)appElementForPath:(NSString*)path{
     ProcessSerialNumber psn = { kNoProcess, kNoProcess };
     while (GetNextProcess(&psn) == noErr){
         NSDictionary *info = (__bridge_transfer NSDictionary*)ProcessInformationCopyDictionary(&psn,  kProcessDictionaryIncludeAllInformationMask);
-        if([info[@"CFBundleExecutable"] isEqual:path]) return [self appElementForPID:[info[@"pid"] intValue]];
-    }
-    if(launch){
-        @try{
-            NSTask *task = [NSTask new];
-            task.launchPath = path;
-            task.standardInput = task.standardOutput = task.standardError = [NSFileHandle fileHandleWithNullDevice];
-            [task launch];
-            return [self appElementForPID:task.processIdentifier];
-        }@catch (NSException *ex) {
+        if([info[@"CFBundleExecutable"] isEqual:path] || [info[@"BundlePath"] isEqual:path]){
+            return [self appElementForPID:[info[@"pid"] intValue]];
         }
     }
     return nil;

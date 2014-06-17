@@ -25,7 +25,7 @@
         if(self.pid == 1) return [KUElement systemWideElement];
         else return [KUElement appElementForPID:self.pid];
     }else{
-        return [KUElement appElementForPath:@"/Applications/TextEdit.app/Contents/MacOS/TextEdit" launchIfNotRunning:YES];
+        return [KUElement appElementForPath:@"/Applications/TextEdit.app"];
     }
 }
 - (IBAction)gatherElements:(id)sender{

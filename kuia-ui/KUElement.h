@@ -17,7 +17,7 @@ const uint8_t libraryVersion = 1;
 
 + (id)systemWideElement;
 + (id)appElementForPID:(pid_t)pid;
-+ (id)appElementForPath:(NSString*)path launchIfNotRunning:(BOOL)launch;
++ (id)appElementForPath:(NSString*)path;
 - (id)initWithAXUIElementRef:(AXUIElementRef)elementRef;
 
 - (id)matches:(NSDictionary*)queryDict;

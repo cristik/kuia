@@ -91,6 +91,16 @@ module Cocoa
 
 end
 
+module NSWorkspace
+
+  def self.openFile(path)
+    ns_workspace_class = ObjC.objc_getClass("NSWorkspace")
+    shared_workspace = ObjC.msgSend(ns_workspace_class, "sharedWorkspace")
+    ObjC.msgSend(shared_workspace, "openFile:", :pointer, Cocoa.StringToNSString(path))
+  end
+
+end
+
 module KUElement
   extend FFI::Library
 
@@ -102,9 +112,9 @@ module KUElement
     return ObjC.msgSend(kuElementClass,'appElementForPID:', :int, pid)
   end
 
-  def self.getAppElementByPath(path,launch)
+  def self.getAppElementByPath(path)
     kuElementClass = ObjC.objc_getClass("KUElement")
-return ObjC.msgSend(kuElementClass,'appElementForPath:launchIfNotRunning:', :pointer, Cocoa.StringToNSString(path), :bool, launch)
+    return ObjC.msgSend(kuElementClass,'appElementForPath:', :pointer, Cocoa.StringToNSString(path))
   end
 
   def self.query(element, queryDict)
@@ -112,7 +122,6 @@ return ObjC.msgSend(kuElementClass,'appElementForPath:launchIfNotRunning:', :poi
   end
 
   def self.queryOne(element, queryDict)
-#puts caller
     return ObjC.msgSend(element,'queryOne:', :pointer, Cocoa.hashToNSDictionary(queryDict))
   end
 
