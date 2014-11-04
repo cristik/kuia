@@ -21,6 +21,11 @@
     NSArray *_children;
 }
 
++ (BOOL)hasAccess{
+    NSDictionary *options = @{(__bridge NSString*)kAXTrustedCheckOptionPrompt:@YES};
+    return AXIsProcessTrustedWithOptions((__bridge CFDictionaryRef)options);
+}
+
 + (id)systemWideElement{
     AXUIElementRef systemWideElement = AXUIElementCreateSystemWide();
     KUElement *element = nil;

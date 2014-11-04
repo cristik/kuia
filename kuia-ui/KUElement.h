@@ -15,6 +15,7 @@ const uint8_t libraryVersion = 1;
 @property(readonly) NSDictionary *properties;
 @property(readonly) NSArray *children;
 
++ (BOOL)hasAccess;
 + (id)systemWideElement;
 + (id)appElementForPID:(pid_t)pid;
 + (id)appElementForPath:(NSString*)path;
