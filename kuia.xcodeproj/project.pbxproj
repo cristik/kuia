@@ -30,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FC5678D1A1A0203000AD389 /* kuia.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = kuia.rb; sourceTree = "<group>"; };
 		0FD2073C194CC37C000C5BDF /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		AA23E4FD194C5322006DE758 /* kuia.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = kuia.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA23E501194C5322006DE758 /* kuia-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kuia-Prefix.pch"; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 		AA9F1145194B883200F5B160 = {
 			isa = PBXGroup;
 			children = (
+				0FC5678D1A1A0203000AD389 /* kuia.rb */,
 				AA9F116A194B88E300F5B160 /* kuia-ui */,
 				AA9F119C194B891E00F5B160 /* kuia */,
 				AA9F1150194B883200F5B160 /* Frameworks */,
