@@ -131,7 +131,12 @@ module KUElement
   extend FFI::Library
 
   # Load the library
-  ffi_lib File.expand_path('../kuia.dylib', __FILE__)
+  ffi_lib KUIA_PATH
+
+  def self.hasAccess?
+    kuElementClass = ObjC.objc_getClass("KUElement")
+    return !ObjC.msgSend(kuElementClass,'hasAccess').to_i.zero?  
+  end
 
   def self.getAppElement(pid)
     kuElementClass = ObjC.objc_getClass("KUElement")
