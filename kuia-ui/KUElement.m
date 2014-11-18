@@ -155,21 +155,29 @@
 
 - (id)query:(NSDictionary*)queryDict returnFirst:(BOOL)returnFirst{
     //NSLog(@"query: %@",queryDict);
+    NSNumber *order = queryDict[@":order"];
     NSMutableArray *candidates = [NSMutableArray arrayWithObject:self];
-    NSMutableArray *result = returnFirst?nil:[NSMutableArray arrayWithCapacity:1];
+    NSMutableArray *result = returnFirst&&!order?nil:[NSMutableArray arrayWithCapacity:1];
     while(candidates.count){
         KUElement *candidate = candidates[0];
         //NSLog(@"candidate props: %@",candidate.properties);
         [candidates removeObjectAtIndex:0];
         KUElement *match = [candidate matches:queryDict];
         if(match){
-            if(returnFirst) return match;
+            if(returnFirst && !order) return match;
             else [result addObject:match];
         }
         if([candidate.properties[@"AXChildren"] isKindOfClass:[NSArray class]]){
             for(id uiElem in candidate.properties[@"AXChildren"]){
                 [candidates addObject:[[KUElement alloc] initWithAXUIElementRef:(__bridge AXUIElementRef)uiElem]];
             }
+        }
+    }
+    if(order) {
+        if(result.count >= order.integerValue) {
+            result = result[order.integerValue-1];
+        } else {
+            result = nil;
         }
     }
     return result;
