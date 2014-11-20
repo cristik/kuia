@@ -25,6 +25,7 @@
 
 #import "KUElement.h"
 #include <Carbon/Carbon.h>
+#import <Quartz/Quartz.h>
 
 @interface KUIElementProperty: NSObject
 @property id name;
@@ -38,9 +39,27 @@
     NSArray *_children;
 }
 
-+ (BOOL)hasAccess{
++ (BOOL)hasAccess {
     NSDictionary *options = @{(__bridge NSString*)kAXTrustedCheckOptionPrompt:@YES};
     return AXIsProcessTrustedWithOptions((__bridge CFDictionaryRef)options);
+}
+
++ (NSString*)captureScreen:(NSString*)prefix {
+    CGDirectDisplayID displayID;
+    CGGetActiveDisplayList(1, &displayID, NULL);
+    CGImageRef screenshot = CGDisplayCreateImage(displayID);
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@.png",prefix]];
+    CGImageDestinationRef dest = CGImageDestinationCreateWithURL((__bridge CFURLRef)url,
+                                                                 kUTTypePNG,
+                                                                 1, NULL);
+    if(dest) {
+        CGImageDestinationAddImage(dest, screenshot, NULL);
+        CGImageDestinationFinalize(dest);
+        CFRelease(dest);
+    } else {
+        url = nil;
+    }
+    return url.absoluteURL.path;
 }
 
 + (id)systemWideElement{

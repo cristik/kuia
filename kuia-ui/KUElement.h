@@ -33,6 +33,7 @@ const uint8_t libraryVersion = 1;
 @property(readonly) NSArray *children;
 
 + (BOOL)hasAccess;
++ (NSString*)captureScreen:(NSString*)prefix;
 + (id)systemWideElement;
 + (id)appElementForPID:(pid_t)pid;
 + (id)appElementForPath:(NSString*)path;

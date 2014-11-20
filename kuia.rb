@@ -138,6 +138,11 @@ module KUElement
     return !ObjC.msgSend(kuElementClass,'hasAccess').to_i.zero?  
   end
 
+  def self.captureScreen(el, prefix)
+    kuElementClass = ObjC.objc_getClass("KUElement")
+    ObjC.msgSend(kuElementClass,'captureScreen:', :pointer, Cocoa.StringToNSString(prefix))
+  end
+
   def self.getAppElement(pid)
     kuElementClass = ObjC.objc_getClass("KUElement")
     return ObjC.msgSend(kuElementClass,'appElementForPID:', :int, pid)
